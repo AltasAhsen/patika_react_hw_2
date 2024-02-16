@@ -1,82 +1,21 @@
 import "./App.css";
+import Footer from "./components/Footer";
+import Main from "./components/Main"
+import Header from "./components/Header";
+import Info from "./components/Info";
+import Context from "./components/Context";
 
 function App() {
   return (
     <div className="App">
+      <Context>
       <section className="todoapp">
-        <header className="header">
-          <h1>todos</h1>
-          <form>
-            <input
-              className="new-todo"
-              placeholder="What needs to be done?"
-              autoFocus
-            />
-          </form>
-        </header>
-
-        <section className="main">
-          <input id="toggle-all" className="toggle-all" type="checkbox" />
-          <label htmlFor="toggle-all">Mark all as complete</label>
-
-          <ul className="todo-list">
-            <li className="completed">
-              <div className="view">
-                <input className="toggle" type="checkbox" />
-                <label>Learn JavaScript</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-            <li>
-              <div className="view">
-                <input className="toggle" type="checkbox" />
-                <label>Learn React</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-            <li>
-              <div className="view">
-                <input className="toggle" type="checkbox" />
-                <label>Have a life!</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <footer className="footer">
-          <span className="todo-count">
-            <strong>2</strong>
-            items left
-          </span>
-
-          <ul className="filters">
-            <li>
-              <a href="#/" className="selected">
-                All
-              </a>
-            </li>
-            <li>
-              <a href="#/">Active</a>
-            </li>
-            <li>
-              <a href="#/">Completed</a>
-            </li>
-          </ul>
-
-          <button className="clear-completed">Clear completed</button>
-        </footer>
+        <Header />
+        <Main />
+        <Footer />
       </section>
-
-      <footer className="info">
-        <p>Click to edit a todo</p>
-        <p>
-          Created by <a href="https://d12n.me/">Dmitry Sharabin</a>
-        </p>
-        <p>
-          Part of <a href="http://todomvc.com">TodoMVC</a>
-        </p>
-      </footer>
+      <Info/>
+      </Context>
     </div>
   );
 }
