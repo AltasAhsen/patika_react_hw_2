@@ -10,17 +10,17 @@ export default function Context({children}) {
             {title: "Have a life!", isCompleted:false}
         ]
     );
-    const [uncheckedAmount, setUncheckedAmount] = useState(toDoList.filter((element) => !element.isCompleted).length)
+    const [activeList, setActiveList] = useState(toDoList.filter((element) => !element.isCompleted))
+
+    const [filtered, setFiltered] = useState(0);
 
     return(
-        <ToDoContext.Provider value={{toDoList, setToDoList,uncheckedAmount, setUncheckedAmount}}>
+        <ToDoContext.Provider value={{toDoList, setToDoList,activeList, setActiveList,filtered, setFiltered}}>
             {children}
         </ToDoContext.Provider>
     )
 };
 
-export function useToDoList(){
+export function useList(){
     return useContext(ToDoContext);
 }
-
-

@@ -1,7 +1,7 @@
-import { useToDoList } from "./Context";
+import { useList } from "./Context";
 
 function Header() {
-  const { toDoList, setToDoList,setUncheckedAmount } = useToDoList();
+  const { toDoList, setToDoList } = useList();
   
   function addElement(e) {
     e.preventDefault();
@@ -11,9 +11,6 @@ function Header() {
         { title: e.target.value, isCompleted: false },
       ];
       setToDoList(changedToDoList);
-      setUncheckedAmount(
-        changedToDoList.filter((element) => !element.isCompleted).length
-      );
       e.target.value = "";
     }else{
         alert("Empty Value")
